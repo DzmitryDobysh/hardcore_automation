@@ -68,16 +68,6 @@ public class GoogleCloudPricingCalculatorPage extends BaseSpec {
     @FindBy(xpath = "//button[@ng-click='listingCtrl.addComputeServer(ComputeEngineForm);']\n")
     WebElement buttonAddToEstimate;
 
-    @FindBy(xpath = "//*[@id='compute']/md-list/md-list-item[4]")
-    WebElement textProvisioningModel;
-    @FindBy(xpath = "//*[@id='compute']/md-list/md-list-item[5]")
-    WebElement textInstanceType;
-    @FindBy(xpath = "//*[@id='compute']/md-list/md-list-item[1]")
-    WebElement textRegionName;
-    @FindBy(xpath = "//*[@id='compute']/md-list/md-list-item[7]")
-    WebElement textLocalSSD;
-    @FindBy(xpath = "//*[@id='compute']/md-list/md-list-item[3]")
-    WebElement textCommitmentTerm;
     @FindBy(xpath = "//h2/b[@class='ng-binding']")
     WebElement textTotalCost;
 
@@ -131,26 +121,6 @@ public class GoogleCloudPricingCalculatorPage extends BaseSpec {
     public GoogleCloudPricingCalculatorPage clickAddToEstimateButton() {
         buttonAddToEstimate.click();
         return this;
-    }
-
-    public String getProvisioningModel() {
-        return textProvisioningModel.getText();
-    }
-
-    public String getInstanceType() {
-        return textInstanceType.getText();
-    }
-
-    public String getRegionName() {
-        return textRegionName.getText();
-    }
-
-    public String getLocalSSD() {
-        return textLocalSSD.getText();
-    }
-
-    public String getCommitmentTerm() {
-        return textCommitmentTerm.getText();
     }
 
     public String getTotalCost() {
