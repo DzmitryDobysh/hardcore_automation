@@ -1,11 +1,15 @@
 package page;
 
 import model.FormDefaultModel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class GoogleCloudPricingCalculatorPage extends AbstractPage {
+
+    private static final Logger logger = LogManager.getLogger(GoogleCloudPricingCalculatorPage.class);
 
     @FindBy(xpath = "//iframe[contains(@src, '/products/calculator')]")
     WebElement frameMain;
@@ -85,12 +89,14 @@ public class GoogleCloudPricingCalculatorPage extends AbstractPage {
     }
 
     public GoogleCloudPricingCalculatorPage switchToCalculatorIFrame() {
+        logger.debug("Switching to Calculator iFrame");
         driver.switchTo().frame(frameMain);
         driver.switchTo().frame("myFrame");
         return this;
     }
 
     public GoogleCloudPricingCalculatorPage fillInEstimationForm(FormDefaultModel formModel) {
+        logger.debug("Filling in the estimation form");
         String instances = formModel.getInstances();
 
         waitForWebElementVisible(buttonComputeEngine).click();
@@ -119,25 +125,30 @@ public class GoogleCloudPricingCalculatorPage extends AbstractPage {
     }
 
     public GoogleCloudPricingCalculatorPage clickAddToEstimateButton() {
+        logger.debug("Clicking on 'Add to Estimate' button");
         buttonAddToEstimate.click();
         return this;
     }
 
     public String getTotalCost() {
+        logger.debug("Getting the total cost");
         return waitForWebElementVisible(textTotalCost).getText();
     }
 
     public GoogleCloudPricingCalculatorPage clickEmailEstimateButton() {
+        logger.debug("Clicking on 'Email Estimate' button");
         buttonEmailEstimate.click();
         return this;
     }
 
     public GoogleCloudPricingCalculatorPage enterTempEMail(String tempEmail) {
+        logger.debug("Entering temporary email: {}", tempEmail);
         waitForWebElementVisible(inputEmail).sendKeys(tempEmail);
         return this;
     }
 
     public void sendEmail() {
+        logger.debug("Sending email");
         buttonSendEmail.click();
     }
 

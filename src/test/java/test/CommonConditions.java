@@ -4,7 +4,9 @@ import driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 
+@Listeners({util.TestListener.class})
 public class CommonConditions {
     protected WebDriver driver;
 
