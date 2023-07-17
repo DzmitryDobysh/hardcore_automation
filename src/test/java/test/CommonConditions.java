@@ -1,11 +1,11 @@
-package spec;
+package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-public class TestSpec {
+public class CommonConditions {
     protected WebDriver driver;
 
     @BeforeTest(alwaysRun = true)

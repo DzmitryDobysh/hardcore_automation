@@ -4,9 +4,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import spec.BaseSpec;
 
-public class GoogleCloudMainPage extends BaseSpec {
+public class GoogleCloudMainPage extends AbstractPage {
     String GC_BASE_URL = "https://cloud.google.com/";
 
     @FindBy(name = "q")

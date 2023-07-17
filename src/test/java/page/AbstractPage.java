@@ -1,4 +1,4 @@
-package spec;
+package page;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 
-public class BaseSpec {
+public class AbstractPage {
 
     protected WebDriver driver;
 
@@ -20,7 +20,7 @@ public class BaseSpec {
         return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(element));
     }
 
-    protected BaseSpec(WebDriver driver) {
+    protected AbstractPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

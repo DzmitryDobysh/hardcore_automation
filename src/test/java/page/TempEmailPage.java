@@ -5,11 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import spec.BaseSpec;
 
 import java.time.Duration;
 
-public class TempEmailPage extends BaseSpec {
+public class TempEmailPage extends AbstractPage {
     //used another service instead of https://yopmail.com/en/ - probably got banned for no reason
     String TEMP_EMAIL_URL = "https://generator.email/email-generator";
 

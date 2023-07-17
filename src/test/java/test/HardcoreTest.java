@@ -5,9 +5,8 @@ import org.testng.annotations.Test;
 import page.GoogleCloudMainPage;
 import page.GoogleCloudPricingCalculatorPage;
 import page.TempEmailPage;
-import spec.TestSpec;
 
-public class HardcoreTest extends TestSpec {
+public class HardcoreTest extends CommonConditions {
 
     String SEARCH_TERM_MAIN_PAGE = "Google Cloud Platform Pricing Calculator";
     GoogleCloudMainPage cloudMainPage;

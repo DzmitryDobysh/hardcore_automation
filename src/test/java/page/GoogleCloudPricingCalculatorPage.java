@@ -3,9 +3,8 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import spec.BaseSpec;
 
-public class GoogleCloudPricingCalculatorPage extends BaseSpec {
+public class GoogleCloudPricingCalculatorPage extends AbstractPage {
 
     @FindBy(xpath = "//iframe[contains(@src, '/products/calculator')]")
     WebElement frameMain;
