@@ -1,5 +1,6 @@
 package page;
 
+import model.FormDefaultModel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -89,8 +90,8 @@ public class GoogleCloudPricingCalculatorPage extends AbstractPage {
         return this;
     }
 
-    public GoogleCloudPricingCalculatorPage fillInEstimationForm() {
-        String instances = "4";
+    public GoogleCloudPricingCalculatorPage fillInEstimationForm(FormDefaultModel formModel) {
+        String instances = formModel.getInstances();
 
         waitForWebElementVisible(buttonComputeEngine).click();
         inputNumberOfInstances.sendKeys(instances);

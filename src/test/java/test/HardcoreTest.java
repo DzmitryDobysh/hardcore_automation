@@ -1,10 +1,12 @@
 package test;
 
+import model.FormDefaultModel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.GoogleCloudMainPage;
 import page.GoogleCloudPricingCalculatorPage;
 import page.TempEmailPage;
+import service.FormDefaultModelCreator;
 
 public class HardcoreTest extends CommonConditions {
 
@@ -15,13 +17,15 @@ public class HardcoreTest extends CommonConditions {
 
     @Test(description = "Fill in estimation form")
     public void fillInEstimationForm() {
+        FormDefaultModel formModel = FormDefaultModelCreator.createDefaultFormModel();
+
         cloudMainPage = new GoogleCloudMainPage(driver)
                 .openPage()
                 .searchTerm(SEARCH_TERM_MAIN_PAGE)
                 .clickCalculatorPage();
         cloudCalculatorPage = new GoogleCloudPricingCalculatorPage(driver)
                 .switchToCalculatorIFrame()
-                .fillInEstimationForm()
+                .fillInEstimationForm(formModel)
                 .clickAddToEstimateButton();
     }
 
