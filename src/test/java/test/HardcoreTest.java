@@ -18,6 +18,7 @@ public class HardcoreTest extends CommonConditions {
     GoogleCloudMainPage cloudMainPage;
     GoogleCloudPricingCalculatorPage cloudCalculatorPage;
     TempEmailPage tempEmailPage;
+    PageFactory pageFactory;
 
     @Test(description = "Fill in estimation form")
     public void fillInEstimationForm() {
@@ -25,7 +26,9 @@ public class HardcoreTest extends CommonConditions {
 
         FormDefaultModel formModel = FormDefaultModelCreator.createDefaultFormModel();
 
-        cloudMainPage = new GoogleCloudMainPage(driver)
+        pageFactory = new PageFactory();
+
+        cloudMainPage = pageFactory.createGoogleCloudMainPage(driver)
                 .openPage();
         logger.debug("Opened Google Cloud main page");
 
@@ -35,7 +38,7 @@ public class HardcoreTest extends CommonConditions {
         cloudMainPage.clickCalculatorPage();
         logger.debug("Clicked on the calculator page");
 
-        cloudCalculatorPage = new GoogleCloudPricingCalculatorPage(driver)
+        cloudCalculatorPage = pageFactory.createGoogleCloudPricingCalculatorPage(driver)
                 .switchToCalculatorIFrame()
                 .fillInEstimationForm(formModel)
                 .clickAddToEstimateButton();
@@ -48,7 +51,8 @@ public class HardcoreTest extends CommonConditions {
     public void checkTotalCost() {
         logger.info("Starting checkTotalCost test");
 
-        tempEmailPage = new TempEmailPage(driver).openInNewTab();
+        tempEmailPage = pageFactory.createTempEmailPage(driver).
+                openInNewTab();
         logger.debug("Opened TempEmail page in a new tab");
 
         String tempEmail = tempEmailPage.getTempEMail();
