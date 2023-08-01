@@ -48,4 +48,8 @@ public class TempEmailPage extends AbstractPage {
         logger.info("Cost from email: {}", cost);
         return cost;
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 }

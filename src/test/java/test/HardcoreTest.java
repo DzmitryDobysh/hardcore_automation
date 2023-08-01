@@ -1,5 +1,6 @@
 package test;
 
+import decorators.TempEmailPageDecorator;
 import model.FormDefaultModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,11 +52,12 @@ public class HardcoreTest extends CommonConditions {
     public void checkTotalCost() {
         logger.info("Starting checkTotalCost test");
 
-        tempEmailPage = pageFactory.createTempEmailPage(driver).
-                openInNewTab();
+        tempEmailPage = pageFactory.createTempEmailPage(driver);
+        TempEmailPageDecorator tempEmailPageDecorator = new TempEmailPageDecorator(tempEmailPage);
+        tempEmailPageDecorator.openInNewTab();
         logger.debug("Opened TempEmail page in a new tab");
 
-        String tempEmail = tempEmailPage.getTempEMail();
+        String tempEmail = tempEmailPageDecorator.getTempEMail();
         logger.debug("Got temporary email address: {}", tempEmail);
 
         cloudCalculatorPage.switchToPreviousTab();
@@ -65,11 +67,14 @@ public class HardcoreTest extends CommonConditions {
                 .sendEmail();
         String costOnCalcPage = cloudCalculatorPage.getTotalCost();
 
-        tempEmailPage.switchToNextTab();
-        String costOnEmailPage = tempEmailPage.getCostFromEmail();
+        tempEmailPageDecorator.switchToNextTab();
+        String costOnEmailPage = tempEmailPageDecorator.getCostFromEmail();
 
         Assert.assertTrue(costOnCalcPage.contains(costOnEmailPage), "Total Cost from email doesn't match the one from the Calculator page");
         logger.debug("Total cost comparison: Calc Page: {}, Email Page: {}", costOnCalcPage, costOnEmailPage);
+
+        String dateAndTimeFromEmail = tempEmailPageDecorator.getDateAndTimeFromEmail();
+        logger.debug("Date and time from email: {}", dateAndTimeFromEmail);
 
         logger.info("Finished checkTotalCost test");
     }

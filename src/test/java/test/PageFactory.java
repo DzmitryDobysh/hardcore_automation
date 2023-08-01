@@ -1,5 +1,6 @@
 package test;
 
+import decorators.TempEmailPageDecorator;
 import org.openqa.selenium.WebDriver;
 import page.GoogleCloudMainPage;
 import page.GoogleCloudPricingCalculatorPage;
@@ -15,6 +16,7 @@ public class PageFactory {
     }
 
     public TempEmailPage createTempEmailPage(WebDriver driver) {
-        return new TempEmailPage(driver);
+        TempEmailPage tempEmailPage = new TempEmailPage(driver);
+        return new TempEmailPageDecorator(tempEmailPage);
     }
 }
