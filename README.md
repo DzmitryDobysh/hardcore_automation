@@ -1,16 +1,15 @@
 # Practical Task
 
-https://elearn.epam.com/courses/course-v1:EPAM+FW+ext1/courseware
+https://learn.epam.com/learning-piece/sharing?rootId=2576044&itemId=2576054
 
-Задача - построить фреймворк для автоматизации Hardcore задания из курса [WebDriver.](https://learn.epam.com/detailsPage?id=93e65671-c99b-42d7-ae15-f77a60cdfa53)
+## Home Task
 
-Что должно быть в итоговом фреймворке:
+Adopt the previous home task (WebDriver project with patterns implemented) to make possible test execution with
+Cucumber-JVM.
+Follow relevant configuration steps for jUnit/TestNg depending on the existing project architecture.
 
-1. webdrivermanager для управления коннекторам к браузерам
-2. Page Object / Page Factory для абстракций страниц
-3. Модель для бизнес-объектов необходимых сущностей
-4. properties файлы с тестовыми данным для разных окружений (как минимум 2)
-5. xml suites для smoke тестов и всех тестов
-6. При падении теста должен быть сделан скриншот с датой и временем
-7. Фреймворк должен иметь возможность запуска с Jenkins и параметризацией браузера, тест suite, environment. 
-Результаты тестов должны быть на графике джобы, скриншоты должны быть заархивированны как артефакты
+## Acceptance criteria
+
+1. At least one test should use "Scenario Outline" keyword and “Examples:” section.
+2. Apply “Background” keyword for preconditions/recurrent steps.
+3. Use filtering/regular expressions in Gherkin step definitions for parametrization and flexibility.
